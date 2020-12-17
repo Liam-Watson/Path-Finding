@@ -1,0 +1,46 @@
+.node{
+    background-color: aliceblue;
+    border: 2px #282c34 solid;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+
+
+.node-visited{
+    border: 2px #282c34 solid;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: #282c34;
+}
+
+.node-fin{
+    border: 2px #282c34 solid;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: gold;
+}
+
+.node-start{
+    border: 2px #282c34 solid;
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+.node-end{
+    border: 2px #282c34 solid;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
+.node-wall{
+    border: 2px #282c34 solid;
+    background-color: aqua;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+}
