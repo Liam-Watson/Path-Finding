@@ -57,16 +57,16 @@ function getUnvisitedClose(close, grid){
     // console.log(close);
     // console.log(grid);
     if(x > 0){
-        neighbors.push(grid[x/30-1][y/30]);
+        neighbors.push(grid[x-1][y]);
     }
-    if(x/30 < grid.length- 1){
-        neighbors.push(grid[x/30+1][y/30]);
+    if(x < grid.length- 1){
+        neighbors.push(grid[x+1][y]);
     }
     if(y > 0){
-        neighbors.push(grid[x/30][y/30-1]);
+        neighbors.push(grid[x][y-1]);
     }
-    if(y/30 < grid[0].length- 1){
-        neighbors.push(grid[x/30][y/30+1]);
+    if(y < grid[0].length- 1){
+        neighbors.push(grid[x][y+1]);
     }
     // console.log(neighbors)
     return neighbors.filter(neighbor => !neighbor.visited);

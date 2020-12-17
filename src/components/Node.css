@@ -4,15 +4,31 @@
     width: 30px;
     height: 30px;
     position: absolute;
+    user-drag: none;
+    user-select: none;
+
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
 }
 
 
 .node-visited{
-    border: 2px #282c34 solid;
+    border: 2px #FFFFFF solid;
     width: 30px;
     height: 30px;
     position: absolute;
     background-color: #282c34;
+
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
 }
 
 .node-fin{
@@ -21,6 +37,14 @@
     height: 30px;
     position: absolute;
     background-color: gold;
+
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
 }
 
 .node-start{
@@ -29,6 +53,14 @@
     width: 30px;
     height: 30px;
     position: absolute;
+
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
 }
 .node-end{
     border: 2px #282c34 solid;
@@ -36,6 +68,14 @@
     width: 30px;
     height: 30px;
     position: absolute;
+
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
 }
 .node-wall{
     border: 2px #282c34 solid;
@@ -43,4 +83,12 @@
     width: 30px;
     height: 30px;
     position: absolute;
+
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+
 }

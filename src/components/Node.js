@@ -147,7 +147,7 @@ export default class Node extends React.Component {
                 onMouseDown={()=> mouseDown(x,y)}
                 onMouseEnter={()=> mouseOn(x,y)}
                 onMouseUp={() => mouseUp()}
-            />
+            >{this.props.x/38 + " " +this.props.y/38}</div>
         }
         // if(this.state.wall){
         //     return <button id={this.props.id} onMouseOver={this._mouseOver.bind(this)} onMouseMove={this._mouseMv.bind(this)} style={{backgroundColor: "aqua", left: this.props.x, top: this.props.y, width: 30, height:30, position: "absolute"}}></button>
