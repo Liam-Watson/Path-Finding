@@ -1,7 +1,7 @@
 import React from 'react';
 import Node from "./Node";
 import Menu from "./Menu"
-import dijkstra, {getFinalPath} from "../dijkstra.js"
+import dijkstra, {getFinalPath} from "../algorithms/dijkstra.js"
 import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 import menuClick from "../functions/menuClick";
 

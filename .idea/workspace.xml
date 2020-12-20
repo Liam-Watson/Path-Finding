@@ -4,11 +4,8 @@
     <list default="true" id="0b5ab13c-0565-42d6-b7cd-d36ed3b5db8b" name="Default Changelist" comment="Added menu bar">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Node.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Node.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Node.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Node.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Plane.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Plane.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dijkstra.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/dijkstra.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dijkstra.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithms/dijkstra.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +45,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/algorithms" />
+    </key>
+  </component>
   <component name="RunManager" selected="npm.npm start">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
@@ -73,7 +75,7 @@
       <updated>1607972773344</updated>
       <workItem from="1607972774597" duration="20664000" />
       <workItem from="1608055241580" duration="12200000" />
-      <workItem from="1608186313867" duration="24612000" />
+      <workItem from="1608186313867" duration="25151000" />
     </task>
     <servers />
   </component>
