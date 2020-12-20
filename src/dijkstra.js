@@ -18,7 +18,6 @@ export default function dijkstra(grid, start, end){
             continue;
         }
         if(closestNeighbour.distance === Infinity){
-            // console.log("ret inf");
             return visitedNodes;
         }
         closestNeighbour.visited = true;

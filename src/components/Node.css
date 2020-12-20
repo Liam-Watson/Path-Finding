@@ -1,8 +1,8 @@
 .node{
     background-color: aliceblue;
     border: 2px #282c34 solid;
-    width: 30px;
-    height: 30px;
+    /*width: 76px;*/
+    /*height: 76px;*/
     position: absolute;
     user-drag: none;
     user-select: none;
@@ -17,8 +17,8 @@
 
 .node-visited{
     border: 2px #FFFFFF solid;
-    width: 30px;
-    height: 30px;
+    /*width: 76px;*/
+    /*height: 76px;*/
     position: absolute;
     background-color: #282c34;
 
@@ -33,8 +33,8 @@
 
 .node-fin{
     border: 2px #282c34 solid;
-    width: 30px;
-    height: 30px;
+    /*width: 76px;*/
+    /*height: 76px;*/
     position: absolute;
     background-color: gold;
 
@@ -50,8 +50,8 @@
 .node-start{
     border: 2px #282c34 solid;
     background-color: green;
-    width: 30px;
-    height: 30px;
+    /*width: 76px;*/
+    /*height: 76px;*/
     position: absolute;
 
     user-drag: none;
@@ -65,8 +65,8 @@
 .node-end{
     border: 2px #282c34 solid;
     background-color: red;
-    width: 30px;
-    height: 30px;
+    /*width: 76px;*/
+    /*height: 76px;*/
     position: absolute;
 
     user-drag: none;
@@ -80,8 +80,8 @@
 .node-wall{
     border: 2px #282c34 solid;
     background-color: aqua;
-    width: 30px;
-    height: 30px;
+    /*width: 76px;*/
+    /*height: 76px;*/
     position: absolute;
 
     user-drag: none;
@@ -92,3 +92,26 @@
     -ms-user-select: none;
 
 }
+
+.not-found{
+    border: 2px #282c34 solid;
+    background-color: brown;
+    /*width: 76px;*/
+    /*height: 76px;*/
+    position: absolute;
+
+    user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.node-container{
+    position: relative;
+    top: 0vh;
+    right: 0vw;
+    width: 100vw;
+    height: 90vh;
+}
+

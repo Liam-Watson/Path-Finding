@@ -1,22 +1,27 @@
 import React from 'react';
 import Node from "./Node";
+import Menu from "./Menu"
 import dijkstra, {getFinalPath} from "../dijkstra.js"
-// import {getFinalPath} from "../dijkstra.js"
+import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
+import menuClick from "../functions/menuClick";
 
 // let Nodes = [];
 const SCREEN_WIDTH = Math.floor(window.screen.width);
 const SCREEN_HEIGHT = Math.floor(window.screen.height);
-const BLOCK_DIM = Math.floor(SCREEN_HEIGHT*0.05);
-const NUM_COLS = Math.floor(SCREEN_WIDTH/BLOCK_DIM);
-const NUM_ROWS = Math.floor(SCREEN_HEIGHT/BLOCK_DIM);
+const BLOCK_DIM = Math.floor(SCREEN_HEIGHT * 0.06);
+console.log(BLOCK_DIM)
+const NUM_COLS = Math.floor(SCREEN_WIDTH / BLOCK_DIM);
+const NUM_ROWS = Math.floor(SCREEN_HEIGHT / BLOCK_DIM);
 let startNodeX = 0;
 let startNodeY = 0;
 console.log(BLOCK_DIM)
-let endNodeX = Math.floor((SCREEN_WIDTH)/BLOCK_DIM)-1;
-let endNodeY = Math.floor((SCREEN_HEIGHT)/BLOCK_DIM)-1;
+let endNodeX = Math.floor((SCREEN_WIDTH) / BLOCK_DIM) - 1;
+let endNodeY = Math.floor((SCREEN_HEIGHT) / BLOCK_DIM) - 1;
 export default class Plane extends React.Component {
     constructor(props) {
         super(props);
+        this.reset = this.reset.bind(this)
+        this.start = this.runDijkstra.bind(this)
         this.state = {
             mouseDown: false,
             grid: [],
@@ -30,47 +35,31 @@ export default class Plane extends React.Component {
         this.setState({grid});
     }
 
-    // genNodes(){
-    //     let Nodes = [];
-    //     for (let x = 0; x < 900; x+=30){
-    //         let row = []
-    //         for (let y = 0; y < 900; y+=30){
-    //             if(x === 0 && y === 0){
-    //                 row.push(<Node id={x + "" + y} down={true} x={x} y={y} />)
-    //             }
-    //             else if(this.state.mouseDown){
-    //                 row.push(<Node id={x + "" + y} down={true} x={x} y={y} />)
-    //             }else{
-    //                 row.push(<Node id={x + "" + y} down={false} x={x} y={y} />)
-    //             }
-    //             if(this.state.mouseUp){
-    //                 row.push(<Node id={x + "" + y} down={false} x={x} y={y} />)
-    //             }
-    //
-    //         }
-    //         Nodes.push(row);
-    //     }
-    //     return Nodes
-    // }
 
+    reset() {
+        console.log("reset");
+        const grid = logicalGrid();
+        this.setState({grid});
+    }
 
     runDijkstra() {
         let addj = 0;
         const Nodes = this.state.grid;
         let searched = dijkstra(this.state.grid, this.state.grid[startNodeX][startNodeY], this.state.grid[endNodeX][endNodeY]);
         // console.log(searched)
-        // console.log(searched);
-        console.log(searched)
-        for (let node of searched) {
+        let elementArr = [];
+        const pathFound = !(searched[searched.length - 1].isEnd);
+        for (let p = 0; p < searched.length; p++) {
             addj++;
-            const {x, y} = node;
-            if (node.visited) {
+
+            const {x, y} = searched[p];
+            if (searched[p].visited) {
                 let flag = false;
                 let xF;
                 let yF;
                 for (let i = 0; i < Nodes.length; i++) {
                     for (let j = 0; j < Nodes[i].length; j++) {
-                        if (i  === x && j  === y) {
+                        if (i === x && j === y) {
                             flag = true;
                             xF = i;
                             yF = j;
@@ -82,25 +71,43 @@ export default class Plane extends React.Component {
                         break;
                     }
                 }
+
                 setTimeout(() => {
                     // console.log(xF*30, yF*30)
+                    if (p === searched.length - 1) {
+                        this.shortestPath();
+                    }
 
-                    document.getElementById(xF  + " " + yF ).className = "node-visited";
+                    if (!searched[p].isEnd && !searched[p].isStart) {
+                        elementArr.push((xF + " " + yF));
+
+                        document.getElementById(xF + " " + yF).className = "node-visited";
+                    }
+                    if (p === searched.length - 1 && pathFound) {
+                        for (let x of elementArr) {
+                            // console.log(elementArr,x)
+                            document.getElementById(x).className = "not-found";
+                        }
+                    }
+
                 }, 10 * addj)
             }
 
         }
-        this.shortestPath();
+
     }
 
     shortestPath() {
         let nodes = getFinalPath(this.state.grid[endNodeX][endNodeY]);
         for (let i = 0; i < nodes.length; i++) {
             setTimeout(() => {
-                console.log(nodes[i].x + " " + nodes[i].y)
-                document.getElementById(nodes[i].x + " " + nodes[i].y).className = "node-fin";
-            }, 500 * (i ** 0.85));
-            if(i === nodes.length-1){
+                // console.log(nodes[i].x + " " + nodes[i].y)
+                if (!nodes[i].isStart && !nodes[i].isEnd) {
+                    document.getElementById(nodes[i].x + " " + nodes[i].y).className = "node-fin";
+                }
+
+            }, 100 * (i ** 1));
+            if (i === nodes.length - 1) {
                 this.setState({done: true});
             }
         }
@@ -116,7 +123,7 @@ export default class Plane extends React.Component {
     }
 
     _mouseOn(x, y) {
-        if (this.state.mouseDown) {
+        if (this.state.mouseDown && document.getElementById(x + " " + y).className === "node") {
             const wallGrid = addWalls(this.state.grid, x, y);
             this.setState({wallGrid, mouseDown: true})
         } else {
@@ -127,24 +134,28 @@ export default class Plane extends React.Component {
     render() {
         const {grid, mouseDown} = this.state;
         return (
-            <div>
 
-                <div>
+            <div>
+                {/*<div id={"hamburger"} onClick={menuClick.bind(this)} className={"fa fa-bars"}>*/}
+                    <Menu start={this.start} reset={this.reset} />
+                {/*</div>*/}
+                <div className={"node-container"}>
                     {
                         grid.map((row, id) => {
                             return row.map((node, nodeId) => {
-                                    let {x, y, isStart, isEnd, wall} = node;
+                                    let {x, y, isStart, isEnd, wall, visited} = node;
                                     let xPos = x;
                                     let yPos = y;
                                     // console.log(x,y)
 
                                     return (<Node
-                                        x={x*BLOCK_DIM}
-                                        y={y*BLOCK_DIM}
+                                        x={x * BLOCK_DIM}
+                                        y={y * BLOCK_DIM}
                                         id={x + " " + y}
                                         isStart={isStart}
                                         isEnd={isEnd}
                                         wall={wall}
+                                        blockDim={BLOCK_DIM}
                                         mouseIsPressed={mouseDown}
                                         mouseDown={(xPos, yPos) => this._mouseDown(x, y)}
                                         mouseOn={(xPos, yPos) => {
@@ -152,15 +163,13 @@ export default class Plane extends React.Component {
                                             this._mouseOn(x, y);
                                         }}
                                         mouseUp={() => this._mouseUp()}
+                                        visited = {visited}
                                     />)
                                 }
                             )
                         })
                     }
                 </div>
-                <button style={{position: "absolute", right: 100, top: 100}}
-                        onClick={this.runDijkstra.bind(this)}>Start
-                </button>
             </div>
         );
     }
@@ -201,9 +210,5 @@ function addWalls(grid, x, y) {
         wall: true
     }
     newGrid[x][y] = newNode;
-    // return grid[x][y] = {
-    //     ...grid[x][y],
-    //     wall: true
-    // }
     return newGrid
 }

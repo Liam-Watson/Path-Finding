@@ -2,6 +2,7 @@ import './App.css';
 import Plane from "./components/Plane";
 import React from 'react';
 
+
 export default class App extends React.Component{
 
 
@@ -10,6 +11,7 @@ export default class App extends React.Component{
 
         return (
             <div >
+
                 <Plane />
             </div>
         );
