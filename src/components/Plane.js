@@ -6,19 +6,16 @@ import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 import menuClick from "../functions/menuClick";
 import {Searching} from "./searchingContext";
 // let Nodes = [];
-const SCREEN_WIDTH = Math.floor(window.screen.width);
-const SCREEN_HEIGHT = Math.floor(window.screen.height);
+const SCREEN_WIDTH = Math.floor(window.screen.width*0.9);
+const SCREEN_HEIGHT = Math.floor(window.screen.height*0.8);
 const BLOCK_DIM = Math.floor(SCREEN_HEIGHT * 0.06);
-console.log(BLOCK_DIM)
 const NUM_COLS = Math.floor(SCREEN_WIDTH / BLOCK_DIM);
 const NUM_ROWS = Math.floor(SCREEN_HEIGHT / BLOCK_DIM);
 let startNodeX = 0;
 let startNodeY = 0;
-console.log(BLOCK_DIM)
 let endNodeX = Math.floor((SCREEN_WIDTH) / BLOCK_DIM) - 1;
 let endNodeY = Math.floor((SCREEN_HEIGHT) / BLOCK_DIM) - 1;
-var c;
-var t;
+
 
 
 

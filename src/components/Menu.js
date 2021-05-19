@@ -15,18 +15,18 @@ export default class Menu extends Component{
         if(this.context){
             return (
                 <div className={"menu-bar "} id={"options"} aria-disabled={"true"}>
-                    <div className={"option"} aria-disabled={"true"}>
+                    {/*     <div className={"option"} aria-disabled={"true"}>
                         <h1>Dijkstra</h1>
                     </div>
-                    {/*<div className={"option"} aria-disabled={"true"}>
+                    <div className={"option"} aria-disabled={"true"}>
                         <h1>Search 2</h1>
                     </div>
                     <div className={"option"}>
                         <h1>Search 3</h1>
                     </div >
-                    <div className={"option"}>
+                    */}<div className={"option"}>
                         <h1 onClick={this.props.reset.bind(this)}>Reset</h1>
-                    </div>
+                    </div>{/*
                     <div className={"option"} aria-disabled={"true"}>
                         <h1>Settings</h1>
                     </div>*/}
@@ -38,10 +38,10 @@ export default class Menu extends Component{
         }else{
             return (
                 <div className={"menu-bar "} id={"options"}>
-                    <div className={"option"}>
+                 {/*   <div className={"option"}>
                         <h1>Dijkstra</h1>
                     </div>
-                    {/*
+
                     <div className={"option"}>
                         <h1>Search 2</h1>
                     </div>
@@ -49,9 +49,9 @@ export default class Menu extends Component{
                         <h1>Search 3</h1>
                     </div >
 
-                    <div className={"option"}>
+                   */ }<div className={"option"}>
                         <h1 onClick={this.props.reset.bind(this)}>Reset</h1>
-                    </div>
+                    </div>{/*
                     <div className={"option"}>
                         <h1>Settings</h1>
                     </div>
