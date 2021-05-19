@@ -4,7 +4,6 @@
     <list default="true" id="0b5ab13c-0565-42d6-b7cd-d36ed3b5db8b" name="Default Changelist" comment="Added menu bar">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Menu.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Menu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Node.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Node.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Plane.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Plane.js" afterDir="false" />
@@ -38,7 +37,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dart.analysis.tool.window.visible" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../personal" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -80,6 +79,7 @@
       <workItem from="1608186313867" duration="25151000" />
       <workItem from="1609756006661" duration="6321000" />
       <workItem from="1621411260111" duration="264000" />
+      <workItem from="1621433484998" duration="1580000" />
     </task>
     <servers />
   </component>

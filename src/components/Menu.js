@@ -18,7 +18,7 @@ export default class Menu extends Component{
                     <div className={"option"} aria-disabled={"true"}>
                         <h1>Dijkstra</h1>
                     </div>
-                    <div className={"option"} aria-disabled={"true"}>
+                    {/*<div className={"option"} aria-disabled={"true"}>
                         <h1>Search 2</h1>
                     </div>
                     <div className={"option"}>
@@ -29,7 +29,7 @@ export default class Menu extends Component{
                     </div>
                     <div className={"option"} aria-disabled={"true"}>
                         <h1>Settings</h1>
-                    </div>
+                    </div>*/}
                     <div className={"option"} onClick={this.props.start.bind(this)} aria-disabled={"true"}>
                         <h1>Start</h1>
                     </div>
@@ -41,18 +41,21 @@ export default class Menu extends Component{
                     <div className={"option"}>
                         <h1>Dijkstra</h1>
                     </div>
+                    {/*
                     <div className={"option"}>
                         <h1>Search 2</h1>
                     </div>
                     <div className={"option"}>
                         <h1>Search 3</h1>
                     </div >
+
                     <div className={"option"}>
                         <h1 onClick={this.props.reset.bind(this)}>Reset</h1>
                     </div>
                     <div className={"option"}>
                         <h1>Settings</h1>
                     </div>
+                    */}
                     <div className={"option"} onClick={this.props.start.bind(this)}>
                         <h1>Start</h1>
                     </div>

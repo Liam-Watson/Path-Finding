@@ -39,6 +39,12 @@ export default class Plane extends React.Component {
     }
 
     componentDidMount() {
+        alert("Notes: \n " +
+            "1. Click and drag to draw walls \n" +
+            "2. Click start to begin search process \n" +
+            "3. The dimensions may not be correct for your screen. End node may be off screen \n" +
+            "4. This project is was my first react project and still needs much work which I will get to when I have time off university \n" +
+            "5. Enjoy!")
         const grid = logicalGrid();
         this.setState({grid});
     }
@@ -55,15 +61,13 @@ export default class Plane extends React.Component {
 
     runDijkstra() {
         this.setState({searching: true})
-        let addj = 0;
+        let addj = 10;
         const Nodes = this.state.grid;
         let searched = dijkstra(this.state.grid, this.state.grid[startNodeX][startNodeY], this.state.grid[endNodeX][endNodeY]);
-        // console.log(searched)
         let elementArr = [];
         const pathFound = !(searched[searched.length - 1].isEnd);
         for (let p = 0; p < searched.length; p++) {
             addj++;
-
             const {x, y} = searched[p];
             if (searched[p].visited) {
                 let flag = false;
@@ -85,7 +89,6 @@ export default class Plane extends React.Component {
                 }
 
                 setTimeout(() => {
-                    // console.log(xF*30, yF*30)
                     if (p === searched.length - 1) {
                         this.shortestPath();
                     }
@@ -97,7 +100,7 @@ export default class Plane extends React.Component {
                     }
                     if (p === searched.length - 1 && pathFound) {
                         for (let x of elementArr) {
-                            // console.log(elementArr,x)
+                            //console.log(elementArr,x)
                             document.getElementById(x).className = "not-found";
                         }
                     }

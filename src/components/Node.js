@@ -137,7 +137,7 @@ export default class Node extends React.Component {
                 onMouseEnter={() => mouseOn(x, y)}
                 onMouseUp={() => mouseUp()}
             />
-        } else if (visited) {
+        } /*else if (visited) {
             return <div
                 style={{top: this.props.y, left: this.props.x, width: blockDim, height: blockDim}}
                 className={"node-visited"}
@@ -146,7 +146,8 @@ export default class Node extends React.Component {
                 onMouseEnter={() => mouseOn(x, y)}
                 onMouseUp={() => mouseUp()}
             />
-        } else {
+        }*/
+         else {
             return <div
                 style={{top: this.props.y, left: this.props.x, width: blockDim, height: blockDim}}
                 className={"node"}
