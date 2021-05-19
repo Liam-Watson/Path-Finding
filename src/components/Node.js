@@ -6,11 +6,6 @@ export default class Node extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // checked: false,
-            // wall: false,
-            // over: false,
-            // move: false,
-            // click: false
 
         } = this.props;
     }

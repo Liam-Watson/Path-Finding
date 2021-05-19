@@ -1,4 +1,6 @@
 .option{
+    cursor: default;
+    user-select: none;
     height: 10vh;
     background-color: #282c34;
     margin: inherit;

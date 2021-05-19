@@ -4,7 +4,7 @@ import Menu from "./Menu"
 import dijkstra, {getFinalPath} from "../algorithms/dijkstra.js"
 import "../fonts/font-awesome-4.7.0/css/font-awesome.css";
 import menuClick from "../functions/menuClick";
-
+import {Searching} from "./searchingContext";
 // let Nodes = [];
 const SCREEN_WIDTH = Math.floor(window.screen.width);
 const SCREEN_HEIGHT = Math.floor(window.screen.height);
@@ -17,15 +17,23 @@ let startNodeY = 0;
 console.log(BLOCK_DIM)
 let endNodeX = Math.floor((SCREEN_WIDTH) / BLOCK_DIM) - 1;
 let endNodeY = Math.floor((SCREEN_HEIGHT) / BLOCK_DIM) - 1;
+var c;
+var t;
+
+
+
 export default class Plane extends React.Component {
+
     constructor(props) {
         super(props);
+
         this.reset = this.reset.bind(this)
         this.start = this.runDijkstra.bind(this)
         this.state = {
             mouseDown: false,
             grid: [],
-            done: false
+            done: false,
+            searching: false,
         }
 
     }
@@ -37,12 +45,16 @@ export default class Plane extends React.Component {
 
 
     reset() {
-        console.log("reset");
-        const grid = logicalGrid();
-        this.setState({grid});
+        console.log("reset")
+        // let grid = logicalGrid();
+        this.setState({grid: logicalGrid()}, ()=>{
+            console.log(this.state.grid);
+        });
+        console.log(logicalGrid(), this.state.grid)
     }
 
     runDijkstra() {
+        this.setState({searching: true})
         let addj = 0;
         const Nodes = this.state.grid;
         let searched = dijkstra(this.state.grid, this.state.grid[startNodeX][startNodeY], this.state.grid[endNodeX][endNodeY]);
@@ -96,7 +108,9 @@ export default class Plane extends React.Component {
         }
 
     }
-
+    notSearching(){
+        // this.setState({searching: false})
+    }
     shortestPath() {
         let nodes = getFinalPath(this.state.grid[endNodeX][endNodeY]);
         for (let i = 0; i < nodes.length; i++) {
@@ -105,7 +119,7 @@ export default class Plane extends React.Component {
                 if (!nodes[i].isStart && !nodes[i].isEnd) {
                     document.getElementById(nodes[i].x + " " + nodes[i].y).className = "node-fin";
                 }
-
+            this.notSearching();
             }, 100 * (i ** 1));
             if (i === nodes.length - 1) {
                 this.setState({done: true});
@@ -135,7 +149,7 @@ export default class Plane extends React.Component {
         const {grid, mouseDown} = this.state;
         return (
 
-            <div>
+            <Searching.Provider value={this.state.searching}>
                 {/*<div id={"hamburger"} onClick={menuClick.bind(this)} className={"fa fa-bars"}>*/}
                     <Menu start={this.start} reset={this.reset} />
                 {/*</div>*/}
@@ -149,6 +163,7 @@ export default class Plane extends React.Component {
                                     // console.log(x,y)
 
                                     return (<Node
+                                        key={x + " " + y}
                                         x={x * BLOCK_DIM}
                                         y={y * BLOCK_DIM}
                                         id={x + " " + y}
@@ -170,7 +185,7 @@ export default class Plane extends React.Component {
                         })
                     }
                 </div>
-            </div>
+            </Searching.Provider>
         );
     }
 
@@ -190,7 +205,8 @@ const logicalNode = (x, y) => {
     });
 
 }
-const logicalGrid = () => {
+
+let logicalGrid = () => {
     let grid = [];
     for (let k = 0; k < NUM_COLS; k += 1) {
         let row = []
